@@ -41,13 +41,23 @@ inline void PyC::Push(int x)
 
 inline void PyC::show()
 {
+    int suma = 0;
     Nodo* reco = raiz;
-    cout << "Listado de todos los elementos de la pila.\n";
+    system("cls");
+    showC();
+    cout << "Pila\n";
     while (reco != NULL)
     {
-        cout << reco->valor << endl;
+        cout << reco->valor << " ";
+        if (reco->valor >= 0) {
+            suma += reco->valor;
+        }
         reco = reco->siguiente;
+        
     }
+    
+    cout << "\n";
+    cout << "La suma es " << suma << endl;
     cout << "\n";
 }
 
@@ -84,12 +94,16 @@ inline void PyC::Add(int x) {
 inline void PyC::showC()
 {
     Nodo* reco = inicio;
-    cout << "Listado de todos los elementos de la cola.\n";
+    int suma = 0;
+
+    cout << "Caja 1\n";
     while (reco != NULL) 
     {
         cout << reco->valor << endl;
         reco = reco->siguiente;
+
     }
+
     cout << "\n";
 }
 

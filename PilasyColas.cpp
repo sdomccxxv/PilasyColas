@@ -1,6 +1,7 @@
 #include <iostream>
 #include <time.h>
 #include <cstdlib>
+#include <Windows.h>
 #include "Pila.h"
 
 using namespace std;
@@ -15,7 +16,18 @@ int main()
     int sec = 2;
     int iterations = 0;
 
-    while (iterations < 5) {
+    srand(time(NULL));
+
+    for (i = 1; i <= 5; i++)
+    {
+        valor = min + rand() % (max - min + 1);
+
+        pila1->Add(valor);
+    }
+    
+    pila1->showC();
+
+    while (iterations <=4) {
         start = clock();
 
         while (1) {
@@ -24,18 +36,7 @@ int main()
 
             if (elapsedsec >= sec) {
 
-                srand(time(NULL));
-
-                for (i = 1; i <= 5; i++)
-                {
-                    valor = min + rand() % (max - min + 1);
-
-                    pila1->Add(valor);
-                }
-
-                pila1->showC();
                 pila1->Push(pila1->Remove());
-                pila1->showC();
                 pila1->show();
 
                 iterations++;
