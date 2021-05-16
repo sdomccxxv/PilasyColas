@@ -10,7 +10,7 @@ private:
         Nodo* siguiente;
     };
 
-    Nodo* raiz;
+    Nodo* raiz = NULL;
     Nodo* inicio = NULL;
     Nodo* fin = NULL;
 public:
@@ -19,7 +19,7 @@ public:
     void show();
 
     void Add(int x);
-    void showC();
+    void showC(int x);
     int Remove();
 };
 
@@ -42,9 +42,10 @@ inline void PyC::Push(int x)
 inline void PyC::show()
 {
     int suma = 0;
+    int x = 1;
     Nodo* reco = raiz;
-    system("cls");
-    showC();
+    //system("cls");
+    showC(x);
     cout << "Pila\n";
     while (reco != NULL)
     {
@@ -91,12 +92,12 @@ inline void PyC::Add(int x) {
     fin = add;
 }
 
-inline void PyC::showC()
+inline void PyC::showC(int x)
 {
     Nodo* reco = inicio;
     int suma = 0;
 
-    cout << "Caja 1\n";
+    cout << "Caja "<< x <<"\n";
     while (reco != NULL) 
     {
         cout << reco->valor << endl;
